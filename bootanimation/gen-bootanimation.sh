@@ -48,7 +48,8 @@ fi
 IMAGEHEIGHT=$(expr $IMAGEWIDTH / 3);
 RESOLUTION="$IMAGEWIDTH"x"$IMAGEHEIGHT";
 
-$PARAM_MOGRIFY -resize $RESOLUTION -colors 256 $INTERMEDIATES/*/*.png;
+# File and invocation times must not enter otherwise identical animation frames.
+$PARAM_MOGRIFY -resize $RESOLUTION -colors 256 -define png:exclude-chunks=date,time $INTERMEDIATES/*/*.png;
 
 echo "$IMAGESCALEWIDTH $IMAGESCALEHEIGHT 60" > $INTERMEDIATES/desc.txt;
 cat $PARAM_DESC_TXT >> $INTERMEDIATES/desc.txt
