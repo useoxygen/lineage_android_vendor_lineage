@@ -5,8 +5,7 @@ $(call inherit-product, vendor/lineage/config/common.mk)
 $(call inherit-product-if-exists, frameworks/base/data/sounds/AudioPackage14.mk)
 include vendor/lineage/config/aosp_audio.mk
 
-# Include Lineage audio files
-include vendor/lineage/config/lineage_audio.mk
+# Cyclon: no Lineage (Cyanogen-era) audio files; the AOSP sounds above stay.
 
 # Default notification/alarm sounds
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -53,7 +52,7 @@ PRODUCT_PACKAGES += \
 
 # Legal
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.lineagelegal.url=https://lineageos.org/legal
+    ro.lineagelegal.url=https://cyclon.ai/legal
 
 # Media
 PRODUCT_PRODUCT_PROPERTIES += \

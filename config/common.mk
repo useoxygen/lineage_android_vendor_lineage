@@ -267,8 +267,8 @@ PRODUCT_PRODUCT_PROPERTIES += \
     debug.sf.enable_transaction_tracing=false
 endif
 
-# Audio files
-$(call inherit-product, vendor/lineage/audio/audio.mk)
+# Audio files: Cyclon leaves out the Plasma Mobile sounds (vendor/lineage/audio, CC BY / CC BY-SA, whose attribution
+# the image did not carry).
 
 # SetupWizard
 PRODUCT_PRODUCT_PROPERTIES += \
