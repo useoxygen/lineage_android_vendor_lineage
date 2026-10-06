@@ -50,9 +50,7 @@ endif
 PRODUCT_PACKAGES += \
     android.software.credentials.prebuilt.xml
 
-# Legal
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.lineagelegal.url=https://cyclon.ai/legal
+# Legal: vendor/cyclon's cyclon_common.mk sets ro.lineagelegal.url to the page it ships on the phone.
 
 # Media
 PRODUCT_PRODUCT_PROPERTIES += \
