@@ -74,7 +74,8 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/etc/textclassifier/textclassifier.universal.model
 
 # Themes
+# Cyclon: no LineageBlackTheme. Cyclon's dark theme is always pure black (CyclonSurfaces), and
+# the overlay brought tinted/grey palette tones back.
 PRODUCT_PACKAGES += \
-    LineageBlackTheme \
     ThemePicker \
     ThemesStub
