@@ -19,9 +19,17 @@ function check_product()
     fi
     export LINEAGE_BUILD
 
+    # Product config writes the release config's flag values to
+    # out/soong/release-config/release_config-<product>-<release>.vars, a file
+    # Kati reads, and release flags can depend on the variant
+    # (RELEASE_BUILD_USE_VARIANT_FLAGS). Checking with an empty variant (eng)
+    # rewrote that file with eng values on every lunch, the build put the real
+    # variant's values back, and Kati then re-read every makefile on every
+    # build. So check with the variant lunch was given: its `variant` local is
+    # visible here, because build/make's lunch calls check_product.
         TARGET_PRODUCT=$1 \
         TARGET_RELEASE=$2 \
-        TARGET_BUILD_VARIANT= \
+        TARGET_BUILD_VARIANT=${variant:-} \
         TARGET_BUILD_TYPE= \
         TARGET_BUILD_APPS= \
         _get_build_var_cached TARGET_DEVICE > /dev/null
